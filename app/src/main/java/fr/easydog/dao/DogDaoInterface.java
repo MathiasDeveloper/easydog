@@ -15,7 +15,7 @@ import fr.easydog.bo.Dog;
 public interface DogDaoInterface {
 
     @Query("SELECT * FROM Dog")
-    LiveData<Dog> getAll();
+    LiveData<List<Dog>> getAll();
 
     @Query("SELECT * FROM Dog WHERE id = :id")
     Dog getById(int id);
