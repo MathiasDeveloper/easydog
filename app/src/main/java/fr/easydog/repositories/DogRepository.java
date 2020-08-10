@@ -29,8 +29,8 @@ public class DogRepository implements DogRepositoryInterface {
     }
 
     @Override
-    public LiveData<Dog> getAll() {
-        return null;
+    public LiveData<List<Dog>> getAll() {
+        return dogDao.getAll();
     }
 
     @Override
