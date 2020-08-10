@@ -37,6 +37,7 @@ public class Dog {
      */
     private Race race;
 
+    public Dog(){}
 
     public Dog(int id, String name, String description, Date date, Race race) {
         this.id = id;
