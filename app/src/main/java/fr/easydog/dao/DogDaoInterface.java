@@ -1,5 +1,6 @@
 package fr.easydog.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,10 +15,10 @@ import fr.easydog.bo.Dog;
 public interface DogDaoInterface {
 
     @Query("SELECT * FROM Dog")
-    List<Dog> getAll();
+    LiveData<Dog> getAll();
 
     @Query("SELECT * FROM Dog WHERE id = :id")
-    List<Dog> getById(int id);
+    Dog getById(int id);
 
     @Insert
     void insert(Dog dog);
