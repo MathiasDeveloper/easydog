@@ -8,6 +8,7 @@ import fr.easydog.bo.Dog;
 
 
 public interface DogRepositoryInterface {
+    LiveData<List<Dog>> getObserver();
     LiveData<List<Dog>> getAll();
     Dog getById(int id);
     void insert(Dog dog);
