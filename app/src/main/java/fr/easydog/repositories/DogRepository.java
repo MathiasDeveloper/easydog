@@ -24,6 +24,7 @@ public class DogRepository implements DogRepositoryInterface {
          observer = dogDao.getAll();
     }
 
+    @Override
     public LiveData<List<Dog>> getObserver(){
         return observer;
     }
