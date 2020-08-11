@@ -9,4 +9,5 @@
     <string name="lb_date">Date de naissance de votre chien</string>
     <string name="date">"Choissisez une date "</string>
     <string name="bt_validate">Valider</string>
+    <string name="lb_my_dog">Mes chiens : </string>
 </resources>
