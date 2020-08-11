@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">EasyDog</string>
     <string name="add">Ajouter</string>
+    <string name="lb_name">Nom</string>
+    <string name="lb_race">"Race du chien "</string>
+    <string name="add_race">Ajouter race</string>
+    <string name="lb_description">Description du chien</string>
+    <string name="add_dog">Ajouter votre chien</string>
+    <string name="lb_date">Date de naissance de votre chien</string>
+    <string name="date">"Choissisez une date "</string>
+    <string name="bt_validate">Valider</string>
 </resources>
