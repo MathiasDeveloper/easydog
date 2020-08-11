@@ -5,15 +5,19 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import fr.easydog.bo.Dog;
+import fr.easydog.bo.converter.DateConverter;
+import fr.easydog.bo.converter.RaceConverter;
 import fr.easydog.config.Environment;
 import fr.easydog.dao.DogDaoInterface;
 
-@Database(entities = {Dog.class}, version = Environment.VERSION)
+@Database(entities = {Dog.class}, version = Environment.VERSION, exportSchema = false)
+@TypeConverters({DateConverter.class, RaceConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase INSTANCE = null;
