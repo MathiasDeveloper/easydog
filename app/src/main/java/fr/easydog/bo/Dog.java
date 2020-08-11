@@ -1,6 +1,7 @@
 package fr.easydog.bo;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
@@ -37,6 +38,7 @@ public class Dog {
      */
     private Race race;
 
+    @Ignore
     public Dog(){}
 
     public Dog(int id, String name, String description, Date date, Race race) {
