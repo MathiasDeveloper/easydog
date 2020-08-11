@@ -22,4 +22,11 @@ public class RaceCollection {
     public void setRaces(ArrayList<Race> races) {
         this.races = races;
     }
+
+    @Override
+    public String toString() {
+        return "RaceCollection{" +
+                "races=" + races +
+                '}';
+    }
 }
