@@ -1,4 +1,4 @@
-package fr.easydog.boTest;
+package fr.easydog.unit.boTest;
 
 import org.junit.Before;
 import org.junit.Test;
