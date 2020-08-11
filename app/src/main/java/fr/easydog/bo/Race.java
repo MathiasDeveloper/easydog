@@ -1,6 +1,7 @@
 package fr.easydog.bo;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -17,6 +18,11 @@ public class Race {
      * String name
      */
     private String name;
+
+    @Ignore
+    public Race(String name) {
+        this.name = name;
+    }
 
     public Race(int id, String name) {
         this.id = id;
@@ -37,5 +43,13 @@ public class Race {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Race{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
