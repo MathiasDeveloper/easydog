@@ -15,17 +15,25 @@ public class RaceRepository implements RaceRepositoryInterface {
 
     private LiveData<List<Race>> observer;
 
+    private LiveData<List<String>> observerLabel;
+
     private RaceDaoInterface raceDao;
 
     public RaceRepository(Context context) {
         AppDatabase appDatabase = AppDatabase.getInstance(context);
         raceDao = appDatabase.getRaceDao();
         observer = raceDao.getAll();
+        observerLabel = raceDao.getAllLabel();
     }
 
     @Override
     public LiveData<List<Race>> getObserver() {
         return observer;
+    }
+
+    @Override
+    public LiveData<List<String>> getObserverLabel() {
+        return observerLabel;
     }
 
     @Override
