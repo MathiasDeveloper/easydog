@@ -20,6 +20,7 @@ import fr.easydog.bo.converter.RaceConverter;
 import fr.easydog.config.Environment;
 import fr.easydog.dao.DogDaoInterface;
 import fr.easydog.dao.RaceDaoInterface;
+import fr.easydog.dao.helper.DataGenerator;
 
 @Database(entities = {Dog.class, Race.class}, version = Environment.VERSION, exportSchema = false)
 @TypeConverters({DateConverter.class, RaceConverter.class})
@@ -59,20 +60,8 @@ public abstract class AppDatabase extends RoomDatabase {
                 protected Void doInBackground(AppDatabase... appDatabases) {
                     DogDaoInterface dogDao = INSTANCE.getDogDao();
                     RaceDaoInterface raceDao = INSTANCE.getRaceDao();
-                    dogDao.insert(new Dog(
-                            0,
-                            "Joyce",
-                            "Un super chien qui adore les pates",
-                            null,
-                            null ));
-                    dogDao.insert(new Dog(
-                            0,
-                            "Tom",
-                            "Un super chien qui cherche des amies",
-                            null,
-                            null));
-                    raceDao.insert(new Race("Pitbull"));
-                    raceDao.insert(new Race("Staff"));
+                    dogDao.insertAll(DataGenerator.generateDogs());
+                    raceDao.insertAll(DataGenerator.generateRaces());
                     return null;
                 }
             }.execute(INSTANCE);
