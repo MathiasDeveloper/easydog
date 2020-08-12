@@ -41,6 +41,7 @@
         android:id="@+id/bt_add_race"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickAddRace"
         android:text="@string/add_race"
         app:layout_constraintTop_toBottomOf="@id/et_name"
         >
