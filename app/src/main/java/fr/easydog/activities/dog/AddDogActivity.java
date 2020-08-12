@@ -1,4 +1,4 @@
-package fr.easydog.activities;
+package fr.easydog.activities.dog;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -6,9 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import fr.easydog.R;
@@ -16,7 +14,7 @@ import fr.easydog.activities.utils.Alert;
 import fr.easydog.bo.Dog;
 import fr.easydog.viewmodel.DogViewModel;
 
-public class AddActivity extends AppCompatActivity {
+public class AddDogActivity extends AppCompatActivity {
 
     private DogViewModel dogViewModel = null;
 
@@ -30,7 +28,7 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+        setContentView(R.layout.activity_add_dog);
 
         editName = findViewById(R.id.et_name);
         editDescription = findViewById(R.id.et_description);
