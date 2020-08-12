@@ -6,26 +6,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 
 import java.util.List;
 
 import fr.easydog.R;
-import fr.easydog.activities.HomeActivity;
 import fr.easydog.activities.utils.Alert;
 import fr.easydog.bo.Dog;
-import fr.easydog.viewmodel.DogViewModel;
 
 public class DogAdapter extends ArrayAdapter<Dog> {
 
-    private DogViewModel dogViewModel = null;
 
     public DogAdapter(@NonNull Context context, int resource, @NonNull List objects) {
         super(context, resource, objects);
