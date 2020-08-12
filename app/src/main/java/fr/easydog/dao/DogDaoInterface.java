@@ -21,6 +21,9 @@ public interface DogDaoInterface {
     Dog getById(int id);
 
     @Insert
+    void insertAll(List<Dog> dogs);
+
+    @Insert
     void insert(Dog dog);
 
     @Update
