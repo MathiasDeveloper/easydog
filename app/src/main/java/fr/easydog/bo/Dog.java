@@ -41,6 +41,8 @@ public class Dog implements Parcelable {
      */
     private Race race;
 
+    private boolean isLiked;
+
     @Ignore
     public Dog(){}
 
@@ -111,7 +113,14 @@ public class Dog implements Parcelable {
         this.race = race;
     }
 
-    @NotNull
+    public boolean isLiked() {
+        return isLiked;
+    }
+
+    public void setLiked(boolean liked) {
+        isLiked = liked;
+    }
+
     @Override
     public String toString() {
         return "Dog{" +
@@ -120,6 +129,7 @@ public class Dog implements Parcelable {
                 ", description='" + description + '\'' +
                 ", date=" + date +
                 ", race=" + race +
+                ", isLiked=" + isLiked +
                 '}';
     }
 
