@@ -9,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import fr.easydog.bo.Dog;
-import fr.easydog.repositories.DogRepository;
-import fr.easydog.repositories.DogRepositoryInterface;
+import fr.easydog.repositories.dog.DogRepository;
+import fr.easydog.repositories.dog.DogRepositoryInterface;
 
 public class DogViewModel extends AndroidViewModel {
 
