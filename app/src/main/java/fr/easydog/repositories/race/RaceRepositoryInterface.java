@@ -9,6 +9,7 @@ import fr.easydog.bo.Race;
 
 public interface RaceRepositoryInterface {
     LiveData<List<Race>> getObserver();
+    LiveData<List<String>> getObserverLabel();
     LiveData<List<Race>> getAll();
     Race getById(int id);
     void insert(final Race race);
