@@ -1,9 +1,9 @@
 package fr.easydog.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,9 @@ import java.util.List;
 
 import fr.easydog.R;
 import fr.easydog.activities.adapter.DogAdapter;
+import fr.easydog.activities.dog.AddDogActivity;
+import fr.easydog.activities.dog.EditDogActivity;
+import fr.easydog.activities.utils.Action;
 import fr.easydog.bo.Dog;
 import fr.easydog.viewmodel.DogViewModel;
 
@@ -39,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, AddActivity.class);
+                Intent intent = new Intent(HomeActivity.this, AddDogActivity.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +56,16 @@ public class HomeActivity extends AppCompatActivity {
             public void onChanged(List<Dog> dogs)
             {
                 HomeActivity.this.dogs = dogs;
-                listDog.setAdapter(new DogAdapter(HomeActivity.this,R.layout.dog_list_style, dogs));
+                listDog.setAdapter(new DogAdapter(HomeActivity.this, R.layout.dog_list_style, dogs));
+            }
+        });
+
+        listDog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(HomeActivity.this, EditDogActivity.class);
+                intent.putExtra(Action.EDIT, dogs.get(i));
+                startActivity(intent);
             }
         });
     }
