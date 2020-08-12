@@ -1,4 +1,4 @@
-package fr.easydog.repositories;
+package fr.easydog.repositories.dog;
 
 import android.content.Context;
 
@@ -50,7 +50,13 @@ public class DogRepository implements DogRepositoryInterface {
     }
 
     @Override
-    public void update(Dog dog) {
+    public void update(final Dog dog) {
+        AppDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                dogDao.update(dog);
+            }
+        });
 
     }
 
