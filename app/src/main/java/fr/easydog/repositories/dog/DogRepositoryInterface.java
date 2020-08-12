@@ -1,4 +1,4 @@
-package fr.easydog.repositories;
+package fr.easydog.repositories.dog;
 
 import androidx.lifecycle.LiveData;
 
@@ -11,7 +11,7 @@ public interface DogRepositoryInterface {
     LiveData<List<Dog>> getObserver();
     LiveData<List<Dog>> getAll();
     Dog getById(int id);
-    void insert(Dog dog);
-    void update(Dog dog);
-    void delete(Dog dog);
+    void insert(final Dog dog);
+    void update(final Dog dog);
+    void delete(final Dog dog);
 }
