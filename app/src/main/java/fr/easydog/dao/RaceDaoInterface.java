@@ -19,6 +19,9 @@ public interface RaceDaoInterface {
     @Query("SELECT * FROM Race WHERE id = :id")
     Race getById(int id);
 
+    @Query("SELECT name FROM Race")
+    LiveData<List<String>> getAllLabel();
+
     @Insert
     void insert(Race race);
 
