@@ -10,4 +10,5 @@
     <string name="date">"Choissisez une date "</string>
     <string name="bt_validate">Valider</string>
     <string name="lb_my_dog">Mes chiens : </string>
+    <string name="bt_edit">modifier</string>
 </resources>
