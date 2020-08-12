@@ -12,15 +12,13 @@ import fr.easydog.dao.utils.AppDatabase;
 
 public class DogRepository implements DogRepositoryInterface {
 
-    private static DogRepository INSTANCE = null;
-
     private LiveData<List<Dog>> observer = null;
 
     private DogDaoInterface dogDao;
 
     public DogRepository(final Context context) {
          AppDatabase appDatabase = AppDatabase.getInstance(context);
-         dogDao = appDatabase.dogDao();
+         dogDao = appDatabase.getDogDao();
          observer = dogDao.getAll();
     }
 
