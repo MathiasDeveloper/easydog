@@ -1,5 +1,8 @@
 package fr.easydog.bo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -9,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Date;
 
 @Entity
-public class Dog {
+public class Dog implements Parcelable {
 
     /**
      * int Id
@@ -48,6 +51,25 @@ public class Dog {
         this.date = date;
         this.race = race;
     }
+
+    @Ignore
+    protected Dog(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        description = in.readString();
+    }
+
+    public static final Creator<Dog> CREATOR = new Creator<Dog>() {
+        @Override
+        public Dog createFromParcel(Parcel in) {
+            return new Dog(in);
+        }
+
+        @Override
+        public Dog[] newArray(int size) {
+            return new Dog[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -99,5 +121,19 @@ public class Dog {
                 ", date=" + date +
                 ", race=" + race +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeString(description);
+        parcel.writeValue(race);
+        parcel.writeValue(date);
     }
 }
