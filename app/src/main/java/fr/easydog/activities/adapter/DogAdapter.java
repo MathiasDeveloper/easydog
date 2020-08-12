@@ -34,10 +34,12 @@ public class DogAdapter extends ArrayAdapter<Dog> {
 
 
         TextView textViewName = convertView.findViewById(R.id.tv_name);
+        TextView textViewDescription = convertView.findViewById(R.id.tv_description);
 
         Dog dog = getItem(position);
 
         textViewName.setText(dog.getName());
+        textViewDescription.setText(dog.getDescription());
 
         return convertView;
     }
