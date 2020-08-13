@@ -22,16 +22,39 @@ import fr.easydog.activities.utils.Action;
 import fr.easydog.bo.Dog;
 import fr.easydog.viewmodel.DogViewModel;
 
+/**
+ * HomeActivity class
+ * Controller for home page
+ */
 public class HomeActivity extends AppCompatActivity {
 
+    /**
+     * ViewModel for dog
+     * DogViewModel dogViewModel
+     */
     private DogViewModel dogViewModel = null;
 
+    /**
+     * List dog
+     * ListView listDog
+     */
     private ListView listDog;
 
+    /**
+     * Button action add
+     * FloatingActionButton fb
+     */
     private FloatingActionButton fb;
 
+    /**
+     * List<Dog> dogs
+     */
     List<Dog> dogs;
 
+    /**
+     * @param savedInstanceState
+     * @return void
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +63,11 @@ public class HomeActivity extends AppCompatActivity {
         fb = findViewById(R.id.btn_add);
 
         fb.setOnClickListener(new View.OnClickListener() {
+            /**
+             * On click event
+             * @param view => view object
+             * @return void
+             */
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, AddDogActivity.class);
@@ -52,6 +80,12 @@ public class HomeActivity extends AppCompatActivity {
         dogViewModel = new ViewModelProvider(this).get(DogViewModel.class);
 
         dogViewModel.getObserver().observe(this, new Observer<List<Dog>>() {
+
+            /**
+             *
+             * @param dogs => list dog
+             * @return dogs
+             */
             @Override
             public void onChanged(List<Dog> dogs)
             {
@@ -61,6 +95,14 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         listDog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+             * On click item list event
+             * @param adapterView => view adapter
+             * @param view => object view
+             * @param i => position
+             * @param l
+             * @return void
+             */
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(HomeActivity.this, EditDogActivity.class);

@@ -19,13 +19,30 @@ import fr.easydog.R;
 import fr.easydog.activities.utils.Alert;
 import fr.easydog.bo.Dog;
 
+/**
+ * DogAdapter class
+ */
 public class DogAdapter extends ArrayAdapter<Dog> {
 
 
+    /**
+     * Construc DogAdapter
+     *
+     * @param context  => context of app
+     * @param resource => resource file
+     * @param objects  => list of object
+     */
     public DogAdapter(@NonNull Context context, int resource, @NonNull List objects) {
         super(context, resource, objects);
     }
 
+    /**
+     * Get view method from ArrayAdapter
+     * @param position    => position
+     * @param convertView => new view
+     * @param parent      => parent view
+     * @return View
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -48,6 +65,10 @@ public class DogAdapter extends ArrayAdapter<Dog> {
         textViewDescription.setText(dog.getDescription());
 
         btLike.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Click on btn like
+             * @param view => object view
+             */
             @Override
             public void onClick(View view) {
                 dog.setLiked(true);
@@ -61,6 +82,10 @@ public class DogAdapter extends ArrayAdapter<Dog> {
         });
 
         btDislike.setOnClickListener(new View.OnClickListener() {
+            /**
+             * click on dislike
+             * @param view => view object
+             */
             @Override
             public void onClick(View view) {
                 dog.setLiked(false);

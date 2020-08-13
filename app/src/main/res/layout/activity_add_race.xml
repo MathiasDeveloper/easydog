@@ -43,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/et_race"
+        android:onClick="onClickValidate"
         android:text="@string/bt_validate">
     </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

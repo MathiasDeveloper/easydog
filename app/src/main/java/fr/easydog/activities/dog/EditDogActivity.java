@@ -1,13 +1,13 @@
 package fr.easydog.activities.dog;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import fr.easydog.R;
 import fr.easydog.activities.utils.Action;
@@ -15,17 +15,38 @@ import fr.easydog.activities.utils.Alert;
 import fr.easydog.bo.Dog;
 import fr.easydog.viewmodel.DogViewModel;
 
-
+/**
+ * EditDogActivity class
+ */
 public class EditDogActivity extends AppCompatActivity {
 
+    /**
+     * DogViewModel dogViewModel
+     */
     private DogViewModel dogViewModel = null;
+
+    /**
+     * EditText editName
+     */
     private EditText editName;
+
+    /**
+     * EditText editDescription
+     */
     private EditText editDescription;
     //private EditText editDate;
     //private Spinner spinnerRace;
 
+    /**
+     * Dog dog
+     */
     private Dog dog = null;
 
+    /**
+     * On create activity
+     * @param savedInstanceState
+     * @return void
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +68,10 @@ public class EditDogActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * On click button update object dog
+     * @param view
+     */
     public void onClickUpdate(View view){
         dog.setName(editName.getText().toString());
         dog.setDescription(editDescription.getText().toString());

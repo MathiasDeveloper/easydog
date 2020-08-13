@@ -22,18 +22,40 @@ import fr.easydog.dao.DogDaoInterface;
 import fr.easydog.dao.RaceDaoInterface;
 import fr.easydog.dao.helper.DataGenerator;
 
+/**
+ * AppDatabase class
+ */
 @Database(entities = {Dog.class, Race.class}, version = Environment.VERSION, exportSchema = false)
 @TypeConverters({DateConverter.class, RaceConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
+    /**
+     * AppDatabase INSTANCE
+     */
     public static AppDatabase INSTANCE = null;
 
+    /**
+     * ExecutorService databaseWriteExecutor
+     */
     public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(1);
 
+    /**
+     * Getter dog dao
+     * @return DogDaoInterface
+     */
     public abstract DogDaoInterface getDogDao();
 
+    /**
+     * Getter race dao
+     * @return RaceDaoInterface
+     */
     public abstract RaceDaoInterface getRaceDao();
 
+    /**
+     * Get instance class AppDatabase
+     * @param context => Context app object
+     * @return AppDatabase
+     */
     public static AppDatabase getInstance(Context context) {
         if (null == INSTANCE) {
             synchronized (AppDatabase.class) {
@@ -51,6 +73,10 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
+    /**
+     * Room fixture for generate data
+     * @return Callback
+     */
     private static Callback roomFixture = new Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {

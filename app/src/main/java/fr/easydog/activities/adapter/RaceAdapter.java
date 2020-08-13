@@ -16,9 +16,17 @@ import java.util.List;
 import fr.easydog.R;
 import fr.easydog.bo.Race;
 
+/**
+ * RaceAdapter class
+ */
 public class RaceAdapter extends ArrayAdapter<String> {
 
-
+    /**
+     * Construct adapter Race
+     * @param context  => context of app
+     * @param resource => resourse file
+     * @param objects  => object list
+     */
     public RaceAdapter(
             @NonNull Context context,
             int resource,
@@ -28,6 +36,13 @@ public class RaceAdapter extends ArrayAdapter<String> {
         super(context, resource, objects);
     }
 
+    /**
+     * Get view adapter
+     * @param position    => position
+     * @param convertView => new view
+     * @param parent      => parent object view
+     * @return View
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
