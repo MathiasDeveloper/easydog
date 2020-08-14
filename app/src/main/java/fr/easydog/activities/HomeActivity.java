@@ -80,7 +80,6 @@ public class HomeActivity extends AppCompatActivity {
         dogViewModel = new ViewModelProvider(this).get(DogViewModel.class);
 
         dogViewModel.getObserver().observe(this, new Observer<List<Dog>>() {
-
             /**
              *
              * @param dogs => list dog

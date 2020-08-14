@@ -43,6 +43,7 @@ public interface DogRepositoryInterface {
      * @return Dog
      */
     void update(final Dog dog);
+
     /**
      * Insert dog
      * @param dog => object

@@ -15,7 +15,7 @@ public class DataGenerator {
      * String[] NAMES
      */
     private static final String[] NAMES = new String[]{
-        "Joyce", "Petter", "Tipsy", "Nat", "Normandy"
+        "Joyce", "Petter", "Tipsy"
     };
 
     /**
@@ -24,9 +24,7 @@ public class DataGenerator {
     private static final String[] DESCRIPTIONS = new String[]{
             "Formidable chien qui adore les gens",
             "Adorable bete qui aime jouer",
-            "N'aime pas les gens du tout ! je veux le vendre",
-            "Attend des calins par millier",
-            "Svp je veux des amies :D",
+            "N'aime pas les gens du tout ! je veux le vendre"
     };
 
     /**
@@ -48,6 +46,7 @@ public class DataGenerator {
             Dog dog = new Dog();
             dog.setName(NAMES[i]);
             dog.setDescription(DESCRIPTIONS[i]);
+            dog.setRace(new Race(RACES[i]));
             dogs.add(dog);
         }
 

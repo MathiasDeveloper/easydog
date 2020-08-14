@@ -95,7 +95,6 @@ public class DogAdapter extends ArrayAdapter<Dog> {
                 Toast.makeText(view.getContext(), Alert.DISLIKE, Toast.LENGTH_LONG).show();
             }
         });
-        Log.i("INFO", dog.toString());
 
 
         return convertView;

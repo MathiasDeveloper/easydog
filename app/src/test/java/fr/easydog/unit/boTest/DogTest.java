@@ -22,5 +22,4 @@ public class DogTest {
         dog.setId(1);
         assertEquals(attempt, dog.getId());
     }
-
 }

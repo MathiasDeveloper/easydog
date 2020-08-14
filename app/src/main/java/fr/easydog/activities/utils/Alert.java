@@ -21,4 +21,9 @@ public class Alert {
      * String DISLIKE
      */
     public static final String DISLIKE = "Dommage, tu as disliké le chien... le proprio boude !";
+
+    /**
+     * String DISLIKE
+     */
+    public static final String ERROR = "Oups, la création n'as pas fonctionnée !";
 }

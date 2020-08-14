@@ -100,8 +100,13 @@ public class RaceRepository implements RaceRepositoryInterface {
      * @return void
      */
     @Override
-    public void update(Race race) {
-
+    public void update(final Race race) {
+        AppDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                raceDao.update(race);
+            }
+        });
     }
 
     /**

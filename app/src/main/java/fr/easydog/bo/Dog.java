@@ -53,7 +53,9 @@ public class Dog implements Parcelable {
      * Construct Dog
      */
     @Ignore
-    public Dog(){}
+    public Dog(){
+        this.date = new Date();
+    }
 
     /**
      * Construct dog
@@ -67,24 +69,35 @@ public class Dog implements Parcelable {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.date = date;
+        this.date = date == null ? new Date() : date;
         this.race = race;
     }
 
-    /**
-     * Parcel object dog
-     * @param in => parcel object
-     */
-    @Ignore
+
     protected Dog(Parcel in) {
         id = in.readInt();
         name = in.readString();
         description = in.readString();
+        date = new Date (in.readLong());
+        race = in.readParcelable(Race.class.getClassLoader());
+        isLiked = in.readByte() != 0;
     }
 
-    /**
-     * Create parcelable dog
-     */
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeLong(date.getTime());
+        dest.writeParcelable(race,2 );
+        dest.writeByte((byte) (isLiked ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
     public static final Creator<Dog> CREATOR = new Creator<Dog>() {
         @Override
         public Dog createFromParcel(Parcel in) {
@@ -213,27 +226,4 @@ public class Dog implements Parcelable {
                 '}';
     }
 
-    /**
-     * Describe content method Parcelable interface
-     * @return int
-     */
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    /**
-     * Write to parcel Method
-     * @param parcel => Parcel object
-     * @param i => position
-     * @return void
-     */
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
-        parcel.writeString(name);
-        parcel.writeString(description);
-        parcel.writeValue(race);
-        parcel.writeValue(date);
-    }
 }

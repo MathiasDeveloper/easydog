@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -20,6 +21,7 @@ import fr.easydog.activities.adapter.RaceAdapter;
 import fr.easydog.activities.race.AddRaceActivity;
 import fr.easydog.activities.utils.Alert;
 import fr.easydog.bo.Dog;
+import fr.easydog.bo.Race;
 import fr.easydog.viewmodel.DogViewModel;
 import fr.easydog.viewmodel.RaceViewModel;
 
@@ -67,6 +69,11 @@ public class AddDogActivity extends AppCompatActivity {
     private Dog dog = null;
 
     /**
+     *  Race race
+     */
+    private Race race = null;
+
+    /**
      *  List<String> raceList
      */
     List<String> raceList;
@@ -81,8 +88,8 @@ public class AddDogActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_dog);
 
-        editName = findViewById(R.id.et_name);
-        editDescription = findViewById(R.id.et_description);
+        editName = (EditText) findViewById(R.id.et_name);
+        editDescription = (EditText) findViewById(R.id.et_description);
         //editDate = findViewById(R.id.et_date);
         spinnerRace = (Spinner) findViewById(R.id.spinner_race);
         //validate = findViewById(R.id.bt_validate);
@@ -115,11 +122,25 @@ public class AddDogActivity extends AppCompatActivity {
      * @param view => view object
      */
     public void onClickValidate(View view) {
+
+        String name = editName.getText().toString();
+        String description = editDescription.getText().toString();
+
+        if (name.matches("")){
+            Toast.makeText(this, Alert.ERROR, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (description.matches("")){
+            Toast.makeText(this, Alert.ERROR, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         dog = new Dog();
-        dog.setName(editName.getText().toString());
-        dog.setDescription(editDescription.getText().toString());
-        //dog.setDate(editName.getText().toString());
-        //dog.setName(editName.getText().toString());
+        dog.setName(name);
+        dog.setDescription(description);
+        race = new Race(spinnerRace.getSelectedItem().toString());
+        dog.setRace(race);
 
         Log.i("ACOS", "INFO : " + dog.toString());
 

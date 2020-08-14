@@ -1,5 +1,8 @@
 package fr.easydog.bo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -8,7 +11,7 @@ import androidx.room.PrimaryKey;
  * Race class
  */
 @Entity
-public class Race {
+public class Race implements Parcelable {
 
     /**
      * int id
@@ -40,6 +43,34 @@ public class Race {
         this(name);
         this.id = id;
     }
+
+    protected Race(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Race> CREATOR = new Creator<Race>() {
+        @Override
+        public Race createFromParcel(Parcel in) {
+            return new Race(in);
+        }
+
+        @Override
+        public Race[] newArray(int size) {
+            return new Race[size];
+        }
+    };
 
     /**
      * Getter id object
